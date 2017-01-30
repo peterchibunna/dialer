@@ -1,0 +1,184 @@
+/**/
+
+.special {
+	background: #fff !important;
+	color: #ccc;
+	margin-top: 10px;
+	padding-right: 10px;
+	padding-left: 10px;
+	box-shadow: 0 4px 2px -2px rgba(0,0,0,0.14), 0 3px 5px -2px rgba(0,0,0,0.12), 0 5px 1px -4px rgba(0,0,0,0.2);
+	height: 40px;
+	line-height: 40px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;;
+}
+
+.special .input-field {
+	border: none !important;
+	width:100%;
+	font-size:70%;
+}
+
+.padding-top {
+	padding-top: 50px;
+}
+
+.round-img {
+	border-radius: 50%;
+}
+.list-item {
+	padding: 0;
+}
+
+.list-action-menu-right {
+
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0071b7+0,ea2126+100 */
+	background: #0071b7; /* Old browsers */
+	background: -moz-linear-gradient(left, #0071b7 0%, #ea2126 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left, #0071b7 0%,#ea2126 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right, #0071b7 0%,#ea2126 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0071b7', endColorstr='#ea2126',GradientType=1 ); /* IE6-9 */
+
+	color: white;
+	padding: 0 36px;
+	box-sizing: border-box;
+	line-height: 56px;
+	font-weight:bold;
+	text-align: right;
+}
+.list-action-menu-left {
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#4ccc5e+0,0378bc+100 */
+	background: #4ccc5e; /* Old browsers */
+	background: -moz-linear-gradient(left, #4ccc5e 0%, #0378bc 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left, #4ccc5e 0%,#0378bc 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right, #4ccc5e 0%,#0378bc 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4ccc5e', endColorstr='#0378bc',GradientType=1 ); /* IE6-9 */
+
+	color: white;
+	padding: 0 36px;
+	box-sizing: border-box;
+	line-height: 56px;
+	font-weight:bold;
+	text-align: left;
+}
+
+.list-action-menu:active {
+	background-color: #209319;
+}
+
+.list-action-item {
+	padding: 0 12px;
+	box-sizing: border-box;
+}
+
+.name {
+	margin-top: 5px;
+	line-height: 1.5;
+}
+
+.desc {
+	line-height: 1.5;
+	font-size: 14px;
+	color: #999;
+}
+.icon-item {
+	line-height: 3.0;
+	margin-top: 5px
+}
+
+ons-dialog[var="dialer"] ons-col.outer {
+	text-align: center;
+	min-height:50px;
+	line-height: 50px;
+}
+
+ons-dialog[var="dialer"] ons-col.col {
+	width: 33%;
+}
+.digit {font-size:x-large;}
+.col ons-button {
+	height: 100%;
+	line-height: inherit;
+}
+ons-dialog[var="dialer"] .dialog--material {
+	box-shadow: none;
+	min-width:100%;
+	top:70.5%;
+	position: fixed;
+}
+
+.dialog-mask {
+	height:100.5vh;
+}
+ons-dialog[var="dialer"] .dialog--material .dialog-container--material, ons-dialog[var="dialer"] .dialog--material .dialog-container--material .button--material--flat{
+	background: #0277BD;
+	color: #fff !important;
+}
+
+ons-dialog[var="dialer"] ons-row.input, ons-dialog[var="dialer"] ons-row.input ons-button {
+	background: #156BA0 !important;
+}
+ons-dialog[var="dialer"] ons-row.input ons-col[width]{
+	text-align: center;
+}
+ons-dialog[var="dialer"] ons-row.input ons-col[width] ons-icon {
+	font-size: xx-large;
+	line-height: 55px;
+}
+
+.x-large {
+	font-size:x-large;
+}
+
+#numInput {
+	width: 100%;
+	height: 55px;
+	line-height: 55px;
+	text-align: center;
+	font-size: 220%;
+	border: none;
+	background: transparent;
+	color: #fff;
+}
+.fab-red { background-color: #FF5722;}
+.fab-white {background-color: #fff;color: #636363; font-size: 14px}
+
+#pay-options ons-list-item {height: 56px;}
+#confirmation { text-align: center;}
+ons-input[type]:not([type="radio"]) {
+	width: 90%;
+}
+
+ons-button.pay_button {
+	width: 90% !important;
+	margin: 10px;
+}
+ons-page[name="page5.html"] .page__content, ons-page[name="page5.html"] .list__item {
+	background: #0277BD !important;
+	color: #ffffff !important;
+}
+
+ons-page[name="page5.html"] ons-input .text-input--material__label {
+	/*background: #0277BD !important;*/
+	color: #ffffff !important;
+}
+
+ons-page[name="page5.html"] ons-input .text-input--material {
+	/*background: #0277BD !important;*/
+	color: #ffffff !important;
+	background-image: linear-gradient(to top, transparent 1px, #fff 1px) !important;
+}
+
+ons-page[name="page5.html"] ons-input .radio-button--material__input:checked + .radio-button__checkmark:after {
+	background: #fff !important;
+}
+ons-page[name="page5.html"] ons-input .radio-button--material__input:checked + .radio-button__checkmark:before {
+	border-color: #fff !important;
+}
+ons-page[name="page5.html"] ons-input .radio-button--material__checkmark:before {
+	border-color: #fff !important;
+}
+ons-page[name="page5.html"] ons-input .radio-button--material__input + .radio-button__checkmark:after {
+	background-color: #fff !important;
+}

@@ -1,0 +1,249 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta http-equiv="Content-Security-Policy"
+	      content="default-src * data:; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+	<script src="components/loader.js"></script>
+	<script src="lib/angular/angular.min.js"></script>
+	<script src="lib/onsenui/js/onsenui.min.js"></script>
+	<script src="lib/onsenui/js/angular-onsenui.min.js"></script>
+
+	<link rel="stylesheet" href="components/loader.css">
+	<link rel="stylesheet" href="lib/onsenui/css/onsenui.css">
+	<link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	<script type="text/javascript" src="js/script.js"></script>
+	<title></title>
+</head>
+<body ng-controller="AppController">
+<ons-navigator var="myNavigator" page="starter.html"></ons-navigator>
+
+<ons-template id="starter.html">
+	<ons-page>
+		<ons-toolbar>
+			<div class="center">
+				<ons-row class="special">
+					<ons-col width="25px">
+						<ons-icon ripple icon="fa-search"></ons-icon>
+					</ons-col>
+					<ons-col>
+						<input type="text" id="searchBox" class="input-field" placeholder="{{searchPlaceholder}}"></input>
+					</ons-col>
+					<ons-col width="10px">
+						<ons-icon ripple icon="md-more-vert"></ons-icon>
+					</ons-col>
+				</ons-row>
+			</div>
+		</ons-toolbar>
+
+		<ons-tabbar position="auto" animation="slide" var="tabBar">
+			<ons-tab page="page1.html" icon="md-star"></ons-tab>
+			<ons-tab page="page2.html" icon="fa-clock-o" active="true"></ons-tab>
+			<ons-tab page="page3.html" icon="md-accounts"></ons-tab>
+			<ons-tab page="page4.html" icon="fa-folder"></ons-tab>
+		</ons-tabbar>
+	</ons-page>
+</ons-template>
+
+<ons-template id="page1.html">
+	<ons-page ng-controller="Page1Controller">
+		<p>{{pageText}}</p>
+	</ons-page>
+</ons-template>
+
+<ons-template id="page2.html">
+	<ons-page ng-controller="Page2Controller">
+		<!--<input type="text" id="numInput_" ng-model="num_input" hidden>-->
+		<ons-list>
+			<ons-list-item ng-click="tapNumber(item)" tappable class="list-item" ng-repeat="item in items | filter:num_input">
+				<ons-carousel swipeable style="height: 56px; width: 100%;" initial-index="1" auto-scroll auto-scroll-ratio="0.2">
+					<ons-carousel-item class="list-action-menu-left">
+						REQUEST MONEY
+					</ons-carousel-item>
+					<ons-carousel-item class="list-action-item">
+						<ons-row>
+							<ons-col width="52px" style="padding:0;">
+								<img class="list__item__thumbnail round-img" ng-src="{{item.picture}}">
+							</ons-col>
+							<ons-col>
+								<div class="name">
+									{{item.name}}
+								</div>
+								<div class="desc">
+									{{item.phone}}
+								</div>
+							</ons-col>
+							<ons-col class="icon-item" width="52px" style="padding:0;">
+								<ons-icon icon="md-comment"></ons-icon>
+							</ons-col>
+						</ons-row>
+					</ons-carousel-item>
+					<ons-carousel-item class="list-action-menu-right">
+						SEND MONEY
+					</ons-carousel-item>
+				</ons-carousel>
+			</ons-list-item>
+		</ons-list>
+
+		<ons-fab position="bottom right" class="fab-white_" ng-click="dialer.show()">
+			<ons-icon icon="md-dialpad"></ons-icon>
+		</ons-fab>
+
+		<ons-dialog var="dialer" cancelable>
+			<ons-row class="input">
+				<ons-col width="50px">
+					<ons-button ng-disabled="!num_input" modifier="quiet">
+					<ons-icon icon="md-account-add"></ons-icon>
+					</ons-button>
+				</ons-col>
+				<ons-col class="col">
+					<input type="text" id="numInput" ng-model="num_input">
+				</ons-col>
+				<ons-col width="50px">
+					<ons-button ng-disabled="!num_input" modifier="quiet" ng-click="backspace()">
+						<ons-icon icon="md-tag-close"></ons-icon>
+					</ons-button>
+				</ons-col>
+			</ons-row>
+			<ons-row>
+				<ons-col class="col outer">
+					<ons-button modifier="large quiet" ng-click="pressKey(1)"><span class="digit">1</span></ons-button>
+				</ons-col>
+				<ons-col class="col outer">
+					<ons-button modifier="large quiet" ng-click="pressKey(2)"><span class="digit">2</span></ons-button>
+				</ons-col>
+				<ons-col class="col outer">
+					<ons-button modifier="large quiet" ng-click="pressKey(3)"><span class="digit">3</span></ons-button>
+				</ons-col>
+			</ons-row>
+
+			<ons-row>
+				<ons-col class="col outer">
+					<ons-button modifier="large quiet" ng-click="pressKey(4)"><span class="digit">4</span></ons-button>
+				</ons-col>
+				<ons-col class="col outer">
+					<ons-button modifier="large quiet" ng-click="pressKey(5)"><span class="digit">5</span></ons-button>
+				</ons-col>
+				<ons-col class="col outer">
+					<ons-button modifier="large quiet" ng-click="pressKey(6)"><span class="digit">6</span></ons-button>
+				</ons-col>
+			</ons-row>
+			<ons-row>
+				<ons-col class="col outer">
+					<ons-button modifier="large quiet" ng-click="pressKey(7)"><span class="digit">7</span></ons-button>
+				</ons-col>
+				<ons-col class="col outer">
+					<ons-button modifier="large quiet" ng-click="pressKey(8)"><span class="digit">8</span></ons-button>
+				</ons-col>
+				<ons-col class="col outer">
+					<ons-button modifier="large quiet" ng-click="pressKey(9)"><span class="digit">9</span></ons-button>
+				</ons-col>
+			</ons-row>
+			<ons-row>
+				<ons-col class="col outer">
+					<ons-button modifier="large quiet" ng-click="pressKey('*')"><span class="digit">*/+</span></ons-button>
+				</ons-col>
+				<ons-col class="col outer">
+					<ons-button modifier="large quiet" ng-click="pressKey(0)"><span class="digit">0</span></ons-button>
+				</ons-col>
+				<ons-col class="col outer">
+					<ons-button modifier="large quiet" ng-click="pressKey('#')"><span class="digit">#</span></ons-button>
+				</ons-col>
+			</ons-row>
+			<ons-row>
+				<ons-col class="col outer">
+					<ons-button ng-disabled="!num_input" ng-click="payOptions.show()" modifier="quiet" class="large">PAY</ons-button>
+					</ons-col>
+				<ons-col class="col outer">
+					<ons-speed-dial position="center bottom" style="bottom:0">
+						<ons-fab class="fab-red">
+							<ons-icon icon="md-phone"></ons-icon>
+						</ons-fab>
+
+						<ons-speed-dial-item class="fab-white" style="font-size: 100%">
+							<ons-icon icon="md-phone"></ons-icon>
+							1
+						</ons-speed-dial-item>
+						<ons-speed-dial-item class="fab-white" style="font-size: 100%">
+							<ons-icon icon="md-phone"></ons-icon>
+							2
+						</ons-speed-dial-item>
+					</ons-speed-dial>
+				</ons-col>
+				<ons-col class="col outer">
+					<ons-button ng-click="hideDialer()" class="large" modifier="quiet" >
+						HIDE
+					</ons-button>
+				</ons-col>
+			</ons-row>
+		</ons-dialog>
+
+		<ons-modal var="payOptions">
+			<ons-list style="width: 80%;margin: auto;" id="pay-options">
+				<ons-list-header>Choose Pay Options</ons-list-header>
+				<ons-list-item modifier="longdivider" tappable ng-click="Pay('money')">Send/Transfer Money</ons-list-item>
+				<ons-list-item modifier="longdivider" tappable ng-click="Pay('bill')">Pay Bill</ons-list-item>
+				<ons-list-item modifier="longdivider" tappable ng-click="Pay('airtime')">Send Airtime</ons-list-item>
+				<ons-list-item modifier="longdivider" tappable ng-click="payOptions.hide()">Cancel</ons-list-item>
+			</ons-list>
+		</ons-modal>
+
+	</ons-page>
+</ons-template>
+
+<ons-template id="page3.html">
+	<ons-page ng-controller="Page3Controller as data">
+		<p>{{data.pageText}}</p>
+		<ons-fab position="bottom right">
+			<ons-icon icon="md-accounts-add"></ons-icon>
+		</ons-fab>
+	</ons-page>
+</ons-template>
+
+<ons-template id="page4.html">
+	<ons-page ng-controller="Page4Controller as data">
+		<p>{{data.pageText}}</p>
+		<ons-fab position="bottom right">
+			<ons-icon icon="md-accounts-add"></ons-icon>
+		</ons-fab>
+	</ons-page>
+</ons-template>
+
+<ons-template id="page5.html">
+	<ons-page ng-controller="TransferPageController as data">
+		<ons-toolbar>
+			<div class="left">
+				<ons-back-button>Back</ons-back-button>
+			</div>
+			<div class="center"></div>
+		</ons-toolbar>
+		<ons-list>
+			<ons-list-item modifier="nodivider">
+				<ons-input type="number" placeholder="Amount" float ng-model="pay.amount"></ons-input>
+			</ons-list-item>
+			<ons-list-item modifier="nodivider">
+				<ons-input type="text" placeholder="Reason for payment (optional)" float></ons-input>
+			</ons-list-item>
+			<ons-list-item modifier="nodivider">
+				<label class="left"><ons-input name="bank" type="radio" input-id="radio-1" checked></ons-input></label>
+				<label for="radio-1" class="center"><img width="60" src="http://2.bp.blogspot.com/-RBWMw0V8hfI/VVnzC3Y0KoI/AAAAAAAAHfo/05we_0jm-BI/s1600/GTBank.png"> GTB</label>
+			</ons-list-item>
+			<ons-list-item modifier="nodivider">
+				<label class="left"><ons-input name="bank" type="radio" input-id="radio-2"></ons-input></label>
+				<label for="radio-2" class="center"><img width="60" src="http://www.gtreview.com/appimages/225.png"> Zenith</label>
+			</ons-list-item>
+			<ons-list-item>
+				<p id="confirmation" ng-show="pay.amount > 0">You want to <span>send</span> N<span ng-bind="pay.amount"></span> to +2349243858934</p>
+			</ons-list-item>
+			<ons-list-item>
+				<ons-button modifier="large" class="pay_button fab-white" ng-disabled="pay.amount == 0"><span>PAY</span></ons-button>
+			</ons-list-item>
+		</ons-list>
+	</ons-page>
+</ons-template>
+
+</body>
+</html>
